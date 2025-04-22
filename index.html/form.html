@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HELP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg" type="image/icon type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F08A50;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: white;
+            padding: 15px;
+            width: 100%;
+            height: 65px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            border-radius: 15px;
+            margin-left: 45px;
+            margin-bottom: 15px;
+        }
+
+        #p1 {
+            margin-top: 25px;
+            margin-left: 125px;
+            position: absolute;
+        }
+
+        #p2{
+            font-size: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .help1 {
+            background-color: white;
+            margin: 40px auto;
+            padding: 25px;
+            width: 75%;
+            border-radius: 12px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #name, #email, #conc, #p {
+            display: block;
+            margin-left: 300px;
+            font-size: 20px;
+        }
+
+        input, textarea {
+            width: 50%;
+            padding: 10px;
+            margin-left: 375px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #problemInput {
+            height: 150px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 25px;
+            font-size: 18px;
+            background-color: #F08A50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d16f42;
+        }
+
+        span {
+            color: red;
+            font-size: 14px;
+            margin-left: 375px;
+        }
+
+        @media (max-width: 768px) {
+            #p2 {
+                font-size: 28px;
+                text-align: center;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .help1 {
+                width: 85%;
+                height: 900px;
+                margin: 30px auto;
+                padding: 20px;
+            }
+
+            #name, #email, #conc, #p {
+                margin-left: 20px;
+                font-size: 16px;
+            }
+
+            input, textarea {
+                width: 90%;
+                margin-left: 20px;
+            }
+
+            span {
+                margin-left: 20px;
+            }
+
+            button {
+                margin-top: 20px;
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+
+    <script>
+        function check() {
+            var name = document.getElementById("nameInput").value;
+            var conc = document.getElementById("numInput").value;
+            var email = document.getElementById("emailInput").value;
+            var isValid = true;
+
+            if (!name.match(/^[a-zA-Z\s]+$/)) {
+                document.getElementById("namerror").innerHTML = "Please enter a valid name";
+                isValid = false;
+            } else {
+                document.getElementById("namerror").innerHTML = "";
+            }
+
+            if (!conc.match(/^\d{10}$/)) {
+                document.getElementById("numerror").innerHTML = "Enter a valid 10-digit number";
+                isValid = false;
+            } else {
+                document.getElementById("numerror").innerHTML = "";
+            }
+
+            if (!email.match(/^\S+@\S+\.\S+$/)) {
+                document.getElementById("emailerror").innerHTML = "Enter a valid email";
+                isValid = false;
+            } else {
+                document.getElementById("emailerror").innerHTML = "";
+            }
+
+            return isValid;
+        }
+
+        function sub() {
+            alert("Your problem has been submitted successfully. Thank you for your patience.");
+            document.getElementById("nameInput").value = "";
+            document.getElementById("numInput").value = "";
+            document.getElementById("emailInput").value = "";
+            document.getElementById("problemInput").value = "";
+            document.getElementById("namerror").innerHTML = "";
+            document.getElementById("numerror").innerHTML = "";
+            document.getElementById("emailerror").innerHTML = "";
+            setTimeout(() => {
+                window.location.href = "main.html";
+            }, 500);
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="mainphoto.jpeg" alt="logo" height="60px" style="float:left;">
+        <b><p id="p1"> <i class="fa-solid fa-headset"></i> HELP </p></b>
+    </div>
+
+    <p id="p2"> HELP AND SUPPORT</p>
+
+    <div class="help1">
+        <p style="text-align:center; margin-top:20px; font-size:26px;">
+            Please mention the issue you're facing by filling this form.
+        </p><br><br>
+        <form onsubmit="return check() && sub()">
+            <label id="name">Enter Name:</label><br>
+            <input type="text" id="nameInput" required>
+            <span id="namerror"></span><br>
+
+            <label id="conc">Contact Number:</label><br>
+            <input type="text" id="numInput" required>
+            <span id="numerror"></span><br>
+
+            <label id="email">Email address:</label><br>
+            <input type="text" id="emailInput" required>
+            <span id="emailerror"></span><br>
+
+            <label id="p">What problem are you facing:</label><br>
+            <textarea id="problemInput" rows="4" cols="50" required></textarea>
+
+            <p style="text-align:center; font-size:18px;">Thank you for your patience, we'll address your problem shortly.</p><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

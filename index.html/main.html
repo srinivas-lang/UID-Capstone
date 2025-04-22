@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big Belly</title>
+  <link rel="icon" href="https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script>
+
+    function desc(food,img, price){
+      var confirmModal = document.getElementById("confirm-modal");
+      document.getElementById("word").innerHTML="Add"+ " "+ food+ " " +"to cart?";
+      document.getElementById("img1").src=img;
+      document.getElementById("price").innerHTML=price;
+      document.getElementById("total").innerHTML=price+ " " + "INR";
+      confirmModal.style.display = "flex";
+      document.getElementById("totamo").innerHTML=price+20+7.5+ " " + "INR";
+      
+    }
+
+    function no(){
+      var confirmModal = document.getElementById("confirm-modal");
+      confirmModal.style.display = "none";
+    }
+
+    function okay(){
+      var confirmModal2 = document.getElementById("confirm-modal2");
+      confirmModal2.style.display = "flex";
+      document.getElementById("img2").src=document.getElementById("img1").src;
+      var food=document.getElementById("word").innerHTML;
+      var food1=food.replace("Add", "");
+      var food2=food1.replace("to cart?", "");
+      document.getElementById("pop2").innerHTML = food2;
+    }
+
+
+    function search(){
+      var searchele = document.getElementById("searchbox").value;
+
+      if (searchele=="biriyani"){
+        desc('Chicken biriyani', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/1/265c5abe-e39d-4a20-8d53-238e5ee4aa4e_2f7ac21f-2fc1-4be9-97eb-e8c6ad3fa381.jpg')
+      }
+
+      else if ( searchele == "pizza"){
+        desc('Chicken pizza', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/im7o5m4e3oiq8xv1xts')
+      }
+
+      else if ( searchele == "tacos"){
+        desc('Chicken Taco', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/1/16/d83a385b-c3f9-4afe-81fc-4f91f4d06eee_e9de8345-acaf-4304-bc81-62faaf303931.jpeg')
+      }
+
+      else if ( searchele == "burgers"){
+        desc('Beef Burger', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/13/d6b9be59-10a4-420d-9ff6-44f91b87c7c0_4f367b42-73b8-428c-a801-8f0cf51021b3.jpg')
+      }
+
+      else if ( searchele == "idly"){
+        desc('Idly', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/v0lworimc63ew2ns0ohq')
+      }
+
+      else if ( searchele == "milkshake"){
+        desc('Chocolate Milkshake', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/18/f60e8943-df26-4171-b942-3b4016d6e96f_dc5da415-9a55-4cff-8e2e-202e67105930.jpg')
+      }
+
+      else if ( searchele == "masala dosa"){
+        desc('Masala dosa', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/5/20/82cbaf65-72fd-45aa-9d05-d5fe90c23f9e_508cbc55-0be9-4154-979d-a2c5365cd21e.jpg')
+      }
+
+      else if ( searchele == "cake"){
+        desc('Chocolate Cake', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/thb7rrdooctsnknsnatz')
+      }
+
+      else if ( searchele == "grill chicken"){
+        desc('Grill chicken', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/a49b25abd92efb56811fee70c03345b4')
+      }
+
+      else if ( searchele == "shavarma"){
+        desc('Chicken Shavarma', 'https://i.pinimg.com/736x/39/01/85/39018585aa886757e03f3aa93d9050dc.jpg')
+      }
+
+      else if ( searchele == "fish fingers"){
+        desc('Fish fingers', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/12/26/c73901e6-4d49-43fa-ab3d-ca65152bbe5f_7a2914ed-49f7-429a-8860-ea21be4dda16.jpg')
+      }
+
+      else if ( searchele == "Ice cream"){
+        desc('Ice cream', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/15/058c1f3f-fb79-41d4-95b3-f1e250863188_2a9cf15c-6142-409c-b2c0-92fb6188e1f4.jpg')
+      }
+
+      else{
+        alert("WE ARE OUT OF"+ " " +searchele+ " "+ " TRY AGAIN LATER!" );
+      }
+    }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: static;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header img {
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #f97316;
+    }
+
+    .search{
+      margin-top:35px;
+      text-align: center;
+    }
+
+    #searchbox {
+      width: 50%;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: #fff;
+      min-width: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .categories {
+      margin: 50px auto;
+      width: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
+    }
+
+    .items {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 280px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .items:hover {
+      transform: translateY(-5px);
+    }
+
+    .items img {
+      margin-top: 12px;
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .items h4 {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+#searchbtn{
+  padding:10px;
+  background-color: black;
+  border:none;
+  margin-left: 20px;
+}
+
+.popup{
+  background-color: white;
+  width:400px;
+  height:450px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#bir{
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  color: #333;
+  font-family: Arial, sans-serif;
+
+} 
+
+button {
+  padding:10px;
+  background-color: #F08A50;
+  color: white;
+  margin-top: 12px;
+  height: 45px;
+  width: 80px;
+  border: none;
+  border-radius: 6px;
+}
+button:hover{
+  background-color: #d16f42;
+}
+#word{
+  font-size: 18px;
+  margin-left: 80px;
+}
+
+#searchbtn:hover{
+  background-color: #d16f42;
+}
+
+.overlay2 {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup2{
+  background-color: white;
+  width:400px;
+  height:500px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+#img2{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#pop2{
+  font-size: 15px;
+  margin-left:20px;
+  display:inline;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+.icons{
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#add{
+  padding: 5px; 
+  color: whitesmoke;
+}
+#Cart{
+  background-color: #333;
+  color: #eaeaea;
+  width:40%;
+}
+#table,tr,th,td{
+padding: 50px;
+border-color: #eaeaea;
+border-collapse: collapse;
+
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="mainphoto.jpeg" alt="none" height="60px" Style="border-radius:12px;">
+    <div class="nav-links">
+      <a href="#search-section"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+      <div class="dropdown">
+        <a href=""><i class="fa-solid fa-tags"></i> Offers</a>
+        <div class="dropdown-content">
+          <a href="">🔥 Code: GET50 – 50% Off</a>
+          <a href="">🎉 Code: WELCOME10 – 10% Off</a>
+          <a href="">🍕 Code: PIZZA25 – 25% Off on Pizzas</a>
+          <a href="">🥤 Code: DRINKS15 – 15% Off on Beverages</a>
+          <a href="">🍔 Code: BURGER30 – 30% Off on Burgers</a>
+        </div>
+      </div>
+      <a href="form.html"><i class="fa-solid fa-circle-question"></i> Help</a>
+      <a href="#con"><i class="fa-solid fa-phone"></i>Contact us</a>
+      <a href="#Cart"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+    </div>
+  </div>
+
+  <div class="slideshow-container" style="width: 70%; height: 500px; margin: 40px auto; overflow: hidden; border: 3px solid black;">
+    <img id="slideshow-image" src="https://i.pinimg.com/736x/4e/20/4a/4e204aefe5c7128537a2a52123f50912.jpg" style="width: 100%; height: 100%;">
+  </div>
+  
+  <script>
+    const slideshowImages = [
+      "https://i.pinimg.com/736x/4e/20/4a/4e204aefe5c7128537a2a52123f50912.jpg",
+      "https://i.pinimg.com/736x/67/b0/35/67b035cb1bc9d462ab5fbb5e24f34f13.jpg",
+      "https://i.pinimg.com/736x/0d/e9/75/0de975e6c6943a6b1bfc1124f37bfa3f.jpg",
+      "https://i.pinimg.com/736x/64/bb/c9/64bbc9be11333e2bc06c4b7b7ba80274.jpg",
+      "https://i.pinimg.com/736x/f5/ea/95/f5ea954e885f67326ca8167979608320.jpg"
+    ];
+    let currentSlide = 0;
+    const imgEl = document.getElementById("slideshow-image");
+  
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slideshowImages.length;
+      imgEl.src = slideshowImages[currentSlide];
+    }, 5000);
+  </script>
+  
+
+  <div class="search" id="search-section">
+    <input type="text" id="searchbox" placeholder="Search for delicious food... 🍲" />
+    <button id="searchbtn" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </div>
+
+  <div class="categories">
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/1/265c5abe-e39d-4a20-8d53-238e5ee4aa4e_2f7ac21f-2fc1-4be9-97eb-e8c6ad3fa381.jpg" id="Biryani" onclick="desc('Chicken biriyani', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/6/1/265c5abe-e39d-4a20-8d53-238e5ee4aa4e_2f7ac21f-2fc1-4be9-97eb-e8c6ad3fa381.jpg',299)">
+      <h4>Chicken Biryani</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/im7o5m4e3oiq8xv1xts" id="Pizza" onclick="desc('Chicken pizza', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/im7o5m4e3oiq8xv1xts',199)">
+      <h4>Chicken Pizza</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/thb7rrdooctsnknsnatz" id="Cake" onclick="desc('Chocolate Cake', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/thb7rrdooctsnknsnatz',230)" >
+      <h4>Chocolate Cake</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/13/d6b9be59-10a4-420d-9ff6-44f91b87c7c0_4f367b42-73b8-428c-a801-8f0cf51021b3.jpg" id="Burger" style="height: 240px;" onclick="desc('Beef Burger', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/13/d6b9be59-10a4-420d-9ff6-44f91b87c7c0_4f367b42-73b8-428c-a801-8f0cf51021b3.jpg',190)">
+      <h4>Chicken Burger</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/1/16/d83a385b-c3f9-4afe-81fc-4f91f4d06eee_e9de8345-acaf-4304-bc81-62faaf303931.jpeg" id="Taco" onclick="desc('Chicken Taco', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/1/16/d83a385b-c3f9-4afe-81fc-4f91f4d06eee_e9de8345-acaf-4304-bc81-62faaf303931.jpeg',120)" style="height: 240px;" >
+      <h4>Chicken Taco</h4>
+    </div>
+    <div class="items">
+      <img src="https://i.pinimg.com/736x/39/01/85/39018585aa886757e03f3aa93d9050dc.jpg" id="CS" onclick="desc('Chicken Shavarma', 'https://i.pinimg.com/736x/39/01/85/39018585aa886757e03f3aa93d9050dc.jpg',150)">
+      <h4>Chicken Shavarma</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/8/16/606b33de-5a7b-4aa3-8cc4-2d8d3b2f1332_950301af-2171-4d66-ab83-ebad3b320ed5.jpg" id="idly" style="height: 240px;" onclick="desc('Idly', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/8/16/606b33de-5a7b-4aa3-8cc4-2d8d3b2f1332_950301af-2171-4d66-ab83-ebad3b320ed5.jpg',24)">
+      <h4>Idly</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/5/20/82cbaf65-72fd-45aa-9d05-d5fe90c23f9e_508cbc55-0be9-4154-979d-a2c5365cd21e.jpg" id="Md" style="height: 240px;" onclick="desc('Masala dosa', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/5/20/82cbaf65-72fd-45aa-9d05-d5fe90c23f9e_508cbc55-0be9-4154-979d-a2c5365cd21e.jpg',80)">
+      <h4>Masala dosa</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/12/26/c73901e6-4d49-43fa-ab3d-ca65152bbe5f_7a2914ed-49f7-429a-8860-ea21be4dda16.jpg" id="ff" style="height: 240px;" onclick="desc('Fish fingers', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/12/26/c73901e6-4d49-43fa-ab3d-ca65152bbe5f_7a2914ed-49f7-429a-8860-ea21be4dda16.jpg',200)">
+      <h4>Fish fingers</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/a49b25abd92efb56811fee70c03345b4" id="Grill" style="height: 240px;" onclick="desc('Grill chicken', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/a49b25abd92efb56811fee70c03345b4',320)">
+      <h4>Grill Chicken</h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/15/058c1f3f-fb79-41d4-95b3-f1e250863188_2a9cf15c-6142-409c-b2c0-92fb6188e1f4.jpg" id="Strawberry" style="height: 240px;" onclick="desc('Ice cream', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2024/4/15/058c1f3f-fb79-41d4-95b3-f1e250863188_2a9cf15c-6142-409c-b2c0-92fb6188e1f4.jpg',99)">
+      <h4>Strawberry Ice cream </h4>
+    </div>
+    <div class="items">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/18/f60e8943-df26-4171-b942-3b4016d6e96f_dc5da415-9a55-4cff-8e2e-202e67105930.jpg" id="MS" style="height: 240px;" onclick="desc('Chocolate Milkshake', 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/FOOD_CATALOG/IMAGES/CMS/2025/3/18/f60e8943-df26-4171-b942-3b4016d6e96f_dc5da415-9a55-4cff-8e2e-202e67105930.jpg',75)">
+      <h4>Chocolate Milkshake</h4>
+    </div>
+  </div>
+
+  <div id="confirm-modal" class="overlay">
+    <div class="popup">
+      <img id="img1" src="" style="width:100%; height: 320px; border-radius: 0px;"><br><br>
+      <span id="word"></span><br><br>
+      <button style="margin-left: 80px; font-size: 20px;" onclick="okay()"> Yes </button>
+      <button style="margin-left: 70px; font-size: 20px;" onclick="no()"> No </button>
+  </div>
+  </div>
+
+  <div id="confirm-modal2" class="overlay2">
+    <div class="popup2">
+      <img id="img2" src="" style="width:15%; height: 15%; border-radius: 0px;"></br><br>
+      <b><p style="margin-left: 20px;">Order name:<span id="pop2"></span></p></b></br>
+      <b><p style="margin-left: 20px;">Price :<span id="price" style="margin-left: 72px; color: #333;"></span></p></b></br>
+      <b><label for="add" style="margin-left: 20px;">Enter Address: </label></b>
+      <input type="text" id="add" required style="color:black;"><span id="adderror" style="color: red;"></span><br><br>
+      <hr><br>
+      <b><p style="margin-left: 20px;">Bill details</p></b><br>
+      <b><p style="margin-left: 20px;">Total :<span id="total" style="margin-left: 72px; color: #333;"></span></p></b></br>
+      <b><p style="margin-left: 20px;"> Delivery Fee :<span style="margin-left: 17px; color: #333;">20 INR</span></p></b><br>
+      <b><p style="margin-left: 20px;"> Platform Fee :<span style="margin-left: 17px; color: #333;">7.5 INR</span></p></b><br>
+        <b><p style="margin-left: 20px;"> Total Amount :<span id="totamo" style="margin-left: 10px; color: #333;"></span></p></b>
+        <button style="margin-left: 135px; font-size: 20px; margin-top: 20px; width: 120px;" onclick="closeModal()">Buy Now</button>
+  </div>
+  </div>
+  <b><p style="text-align: center; font-size: 20px; color: #333; margin-top: 100px;">Your one-stop destination for delicious food!</p></b><br>
+    <div id="Cart" style="margin-left: 480px; justify-content: center; margin-top: 80px;">
+      <h2 style="text-align: center;">🛒 Your Cart</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>S.NO</th>
+            <th>Item</th>
+            <th>Price (INR)</th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+        </tbody>
+      </table><br>
+    </div>
+    <button style="margin-top: 50px; margin-left: 740px; background-color:#333;" onclick="if(confirm('Checking out your order')) location.reload()">Checkout</button>
+
+    <script>
+      let count = 0;
+      
+      function closeModal() {
+        
+        var adde = document.getElementById("add");
+        if (add.value){
+        var confirmModal2 = document.getElementById("confirm-modal2");
+        var confirmModal = document.getElementById("confirm-modal");
+        confirmModal2.style.display = "none";
+        confirmModal.style.display = "none";
+      
+        let itemName = document.getElementById("pop2").innerText.trim();
+        let itemPrice = document.getElementById("price").innerText.trim();
+      
+        count++;
+        let tableBody = document.getElementById("cart-body");
+      
+        let newRow = document.createElement("tr");
+      
+        newRow.innerHTML = `
+          <td>${count}</td>
+          <td>${itemName}</td>
+          <td>${itemPrice} INR</td>
+        `;
+      
+        tableBody.appendChild(newRow);
+        document.getElementById("Cart").style.display = "block";
+      }
+      else{
+        alert("Enter address!");
+      }
+    }
+      </script>
+
+    <div>
+      <b><p id="con" style="text-align: center; font-size: 20px; color: #333; margin-top: 80px;">Contact Us for more delicious food!</p></b><br>
+
+    <div style="text-align: center; margin-top: 20px;" class="icons" id="last">
+      <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook" style="font-size: 30px; color: #3b5998;"></i></a>
+      <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" style="font-size: 30px; color: #e1306c;"></i></a>
+      <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter" style="font-size: 30px; color: #1da1f2;"></i></a>
+      <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest" style="font-size: 30px; color: #bd081c;"></i></a>
+      <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube" style="font-size: 30px; color: #ff0000;"></i></a>
+      <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" style="font-size: 30px; color: #0077b5;"></i></a>
+  </div>
+  </div>
+  <footer style="text-align: center; margin-top: 20px; padding: 20px; background-color: #f8f8f8; border-top: 1px solid #eaeaea;">
+    <p style="font-size: 14px; color: #777;">2023 Big Belly. All rights reserved.</p>
+    <p style="font-size: 12px; color: #999;">Disclaimer: Prices and availability are subject to change.</p>
+    </footer>
+            
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Belly Sign-Up</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg" type="image/x-icon"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .left-section {
+      width: 50%;
+      background: url("https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg") no-repeat center center/cover;
+    }
+
+    .right-section {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://www.transparenttextures.com/patterns/food.png') repeat;
+      background-color: #fffaf0;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px 40px;
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 450px;
+      max-width: 90%;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-container h2 {
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #F08A50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background-color: #d16f42;
+    }
+
+    #emailerror2 {
+      color: red;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    p a {
+      color: #F08A50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script>
+    function signup() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var conpassword = document.getElementById("conpassword").value;
+      var address = document.getElementById("address").value;
+      var pin = document.getElementById("pin").value;
+      var isValid = true;
+
+      if (!email.match(/^\S+@\S+\.\S+$/)) {
+        document.getElementById("emailerror2").innerHTML = "Incorrect email format";
+        isValid = false;
+      } else if (password.length < 8) {
+        document.getElementById("emailerror2").innerHTML = "Password must be at least 8 characters long";
+        isValid = false;
+      } else if (password !== conpassword) {
+        document.getElementById("emailerror2").innerHTML = "Password and Confirm Password do not match";
+        isValid = false;
+      } else if (address.length < 5) {
+        document.getElementById("emailerror2").innerHTML = "Address must be at least 5 characters long";
+        isValid = false;
+      }
+      else if (pin.length !== 6 || isNaN(pin)) {
+        document.getElementById("emailerror2").innerHTML = "Pincode must be a 6-digit number";
+        isValid = false;
+      }
+      else {
+        document.getElementById("emailerror2").innerHTML = "";
+      }
+
+      if (isValid) {
+        alert("Sign Up Successful!");
+        window.location.href = "main.html";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="left-section"></div>
+
+  <div class="right-section">
+    <div class="login-container">
+      <h2>Sign Up</h2>
+      <input type="email" placeholder="Email" id="email" required />
+      <span id="emailerror2"></span>
+      <input type="password" placeholder="Password" id="password" required />
+      <input type="password" placeholder="Confirm Password" id="conpassword" required />
+      <input type="text" placeholder="Enter Address" id="address" required /><br><br>
+      <input type="text" placeholder="pincode" id="pin" required /><br><br>
+      <button class="login-button" onclick="signup()">Sign Up</button><br><br>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>

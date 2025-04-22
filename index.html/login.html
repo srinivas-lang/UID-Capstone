@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big Belly Login</title>
+  <link rel="icon" href="https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg" type="image/x-icon"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .left-section {
+      width: 50%;
+      background: url("https://i.pinimg.com/736x/c8/48/c6/c848c6e0811cd74a2b2c679912abf2af.jpg") no-repeat center center/cover;
+    }
+
+    .right-section {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://www.transparenttextures.com/patterns/food.png') repeat;
+      background-color: #fffaf0;
+
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px 40px;
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .login-container h2 {
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      background-color: #F08A50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background-color: #d16f42;
+    }
+
+    #emailerror2 {
+      color: red;
+      font-size: 14px;
+    }
+    
+    p {
+      font-size: 14px;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    p a {
+      color: #F08A50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left-section {
+        width: 100%;
+        height: 200px;
+      }
+
+      .right-section {
+        width: 100%;
+        padding: 40px 20px;
+        background-size: contain;
+        background-position: top center;
+      }
+
+      .login-container {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+
+  <script>
+    function login() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var isValid = true;
+
+      if (!email.match(/^\S+@\S+\.\S+$/)) {
+        document.getElementById("emailerror2").innerHTML = "Incorrect email format";
+        isValid = false;
+      } else {
+        document.getElementById("emailerror2").innerHTML = "";
+      }
+
+      if (isValid) {
+        if (email === "srinivasr17h@gmail.com" && password === "123456") {
+          alert("Login successful! Welcome to Big Belly.");
+          window.location.href = "main.html";
+        } else {
+          alert("Invalid email or password. Please try again.");
+        }
+      } else {
+        alert("Please fix the errors before submitting.");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="left-section"></div>
+
+  <div class="right-section">
+    <div class="login-container">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" id="email" required />
+      <span id="emailerror2"></span>
+      <input type="password" placeholder="Password" id="password" required />
+      <button class="login-button" onclick="login()">Login</button><br><br>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>
